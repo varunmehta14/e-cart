@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+//Calling Bootstrap 4.5 css
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Products from './components/Products';
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import Cart from './components/Cart';
+//Calling Firebase config setting to call the data
 
-function App() {
+class App extends React.Component {
+
+  
+  render(){
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router >
+    <Switch>
+        <Route path="/" exact component={Products} />
+        <Route path="/cart" component={Cart} />
+       
+       
+    </Switch>
+</Router>
   );
 }
-
+}
 export default App;
